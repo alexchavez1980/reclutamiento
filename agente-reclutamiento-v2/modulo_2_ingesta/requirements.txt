@@ -1,4 +1,8 @@
 # R1 — Detector de CVs por Email
-# No requiere dependencias externas.
-# Usa exclusivamente la librería estándar de Python:
-#   imaplib, email, os, pathlib, logging
+# Dependencias según el método elegido:
+
+# Microsoft Graph (OAuth2) — método recomendado
+msal>=1.28.0
+requests>=2.31.0
+
+# IMAP (Basic Auth) — no requiere dependencias externas
