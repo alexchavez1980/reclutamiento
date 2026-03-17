@@ -8,7 +8,13 @@
       "Bash(del \"C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\agente-reclutamiento.md\")",
       "Bash(rm \"/mnt/c/Users/achavez/OneDrive - DATASTAR ARGENTINA SA/Escritorio/reclutamiento/agente-reclutamiento-v2/Arquitectura.docx\")",
       "Bash(rm \"/mnt/c/Users/achavez/OneDrive - DATASTAR ARGENTINA SA/Escritorio/reclutamiento/agente-reclutamiento-v2/agente-reclutamiento.md\")",
-      "Bash(powershell.exe -Command \"Remove-Item -Path ''C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\Arquitectura.docx''; Remove-Item -Path ''C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\agente-reclutamiento.md''\")"
+      "Bash(powershell.exe -Command \"Remove-Item -Path ''C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\Arquitectura.docx''; Remove-Item -Path ''C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\agente-reclutamiento.md''\")",
+      "Bash(claude --remote-control \"reclutamiento\")",
+      "Bash(where.exe claude:*)",
+      "Bash(cmd.exe /c \"where claude\")",
+      "Bash(cmd.exe /c \"where claude.exe 2>nul & where claude.cmd 2>nul & dir %APPDATA%\\\\npm\\\\claude* 2>nul & dir %LOCALAPPDATA%\\\\Programs\\\\claude* 2>nul\")",
+      "Bash(cmd.exe /c \"dir \"\"%APPDATA%\\\\npm\"\" 2>nul\")",
+      "Bash(cmd.exe /c \"echo %PATH%\")"
     ]
   }
 }
