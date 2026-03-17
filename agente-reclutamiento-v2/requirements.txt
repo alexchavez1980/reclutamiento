@@ -1,0 +1,3 @@
+# Dependencias mínimas para conexión a Gemini
+google-genai>=0.3.0
+python-dotenv>=1.0.0
