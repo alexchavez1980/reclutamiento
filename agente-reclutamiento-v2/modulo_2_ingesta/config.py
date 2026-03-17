@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv, find_dotenv
+
+# Buscar y cargar env desde la carpeta raíz de v2
+load_dotenv(find_dotenv())
 
 # ──────────────────────────────────────────────
 # Carpeta de destino
