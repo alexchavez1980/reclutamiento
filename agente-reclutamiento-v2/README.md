@@ -118,21 +118,37 @@ R3 → Busca el nombre estandarizado en el repositorio
 > **Formato:** Markdown (`.md`) · **Destino:** GitHub
 
 **Función:** Repositorio de ingeniería para el autor (Alex). Referencia técnica y funcional del sistema.
+Cada sección se vincula con los archivos fuente correspondientes del repositorio.
 
 **Tareas:**
 
 - **Documentación Técnica:**
-  - Especificación de la arquitectura de capas.
+  - Especificación de la arquitectura de capas → [README.md (este archivo)](README.md)
   - Diagramas de flujo.
-  - Documentación de APIs externas (Gemini, Microsoft Graph, Telegram).
-  - Gestión de secretos y configuraciones.
+  - Documentación de APIs externas:
+    - **Gemini:** conexión y configuración → [gemini_client.py](gemini_client.py) · [config.py](config.py)
+    - **Microsoft Graph:** *(pendiente de implementación)*
+    - **Telegram:** *(pendiente de implementación)*
+  - Gestión de secretos y configuraciones → [.env](.env) · [config.py](config.py)
 
 - **Documentación Funcional:**
-  - Definición de la lógica del scoring.
-  - Criterios del motor heurístico.
+  - Definición de la lógica del scoring → *(pendiente — Módulo 3)*
+  - Criterios del motor heurístico → *(pendiente — Módulo 3)*
   - Guía de mantenimiento del flujo.
 
-- **Referencia de Prompts:** registro versionado de los System Prompts utilizados.
+- **Referencia de Prompts:** registro versionado de los System Prompts utilizados → ver prompts originales v0 en [gemini_analyzer.py](../agente-reclutamiento-v0/gemini_analyzer.py#L40-L100)
+
+- **Código de referencia (v0 — recuperado desde bytecode):**
+
+  | Módulo | Archivo | Descripción |
+  |---|---|---|
+  | Configuración | [config.py](../agente-reclutamiento-v0/config.py) | Dataclass con variables de entorno |
+  | Gestor de archivos | [file_manager.py](../agente-reclutamiento-v0/file_manager.py) | Registro de procesados con hash MD5 |
+  | Extractor PDF | [pdf_extractor.py](../agente-reclutamiento-v0/pdf_extractor.py) | pdfplumber + detección de imagen |
+  | Extractor Word | [word_extractor.py](../agente-reclutamiento-v0/word_extractor.py) | python-docx (.docx) + win32com (.doc) |
+  | Analizador Gemini | [gemini_analyzer.py](../agente-reclutamiento-v0/gemini_analyzer.py) | Prompts + análisis texto/OCR |
+  | Exportador Excel | [excel_exporter.py](../agente-reclutamiento-v0/excel_exporter.py) | pandas + openpyxl con estilos |
+  | Orquestador | [main.py](../agente-reclutamiento-v0/main.py) | Pipeline principal |
 
 ---
 
