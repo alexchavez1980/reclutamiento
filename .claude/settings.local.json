@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/achavez/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/b8adfaa3-0c04-4987-80bf-52922ef696da/2a43ca70-abb9-4fe4-b8e0-55717259c8c5/skills/docx/**)",
+      "Bash(pandoc --track-changes=all \"C:/Users/achavez/OneDrive - DATASTAR ARGENTINA SA/Escritorio/reclutamiento/agente-reclutamiento-v2/Categorizacion jerarquica por areas de carpetas y subcarpetas..docx\" -o output.md)",
+      "Bash(python scripts/office/unpack.py \"C:/Users/achavez/OneDrive - DATASTAR ARGENTINA SA/Escritorio/reclutamiento/agente-reclutamiento-v2/Categorizacion jerarquica por areas de carpetas y subcarpetas..docx\" unpacked_cat/)",
+      "Bash(del \"C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\Arquitectura.docx\")",
+      "Bash(del \"C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\agente-reclutamiento.md\")",
+      "Bash(rm \"/mnt/c/Users/achavez/OneDrive - DATASTAR ARGENTINA SA/Escritorio/reclutamiento/agente-reclutamiento-v2/Arquitectura.docx\")",
+      "Bash(rm \"/mnt/c/Users/achavez/OneDrive - DATASTAR ARGENTINA SA/Escritorio/reclutamiento/agente-reclutamiento-v2/agente-reclutamiento.md\")",
+      "Bash(powershell.exe -Command \"Remove-Item -Path ''C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\Arquitectura.docx''; Remove-Item -Path ''C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\agente-reclutamiento-v2\\\\agente-reclutamiento.md''\")"
+    ]
+  }
+}

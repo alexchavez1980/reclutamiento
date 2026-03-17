@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find 'G:/Mi unidad/Alex/Trabajo/24-Hoy-Datastar/IA/reclutamiento' -type f -name *.md -o -name *.json -o -name *.yaml -o -name *.yml -o -name *.txt -o -name *.py -o -name *.js -o -name *.ts -o -name README* -o -name package.json -o -name requirements.txt)",
+      "Bash(python3 -c \":*)",
+      "Bash(python \"G:/Mi unidad/Alex/Trabajo/24-Hoy-Datastar/IA/reclutamiento/Arquitectura.gdoc\")",
+      "Bash(py -c \":*)",
+      "Bash(powershell -Command \"Get-Content -Path ''G:\\\\Mi unidad\\\\Alex\\\\Trabajo\\\\24-Hoy-Datastar\\\\IA\\\\reclutamiento\\\\Arquitectura.gdoc'' -Raw\")",
+      "mcp__mcp-registry__search_mcp_registry",
+      "Read(//c/Users/achavez/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/b8adfaa3-0c04-4987-80bf-52922ef696da/2a43ca70-abb9-4fe4-b8e0-55717259c8c5/skills/docx/**)",
+      "Bash(pandoc \"C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\Arquitectura.docx\" -o output.md)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\achavez\\\\OneDrive - DATASTAR ARGENTINA SA\\\\Escritorio\\\\reclutamiento\\\\Arquitectura.docx\" unpacked/)"
+    ]
+  }
+}
