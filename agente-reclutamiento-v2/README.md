@@ -30,21 +30,64 @@
 
 ## Módulo 2 — Ingesta
 
-**Función:** Gestión de la entrada de datos y normalización del repositorio físico.
+**Función:** Puerta de entrada del sistema. Todo CV que ingresa al agente pasa por este módulo antes de ser procesado. Comprende tres responsabilidades ejecutadas en orden secuencial.
 
-### Submódulo: Orden
+**Flujo:**
+```
+R1 → Detecta y descarga el archivo en la carpeta de entrada
+R2 → Lee el CV, extrae el nombre, lo renombra en la carpeta de entrada
+R3 → Busca el nombre estandarizado en el repositorio
+      EXISTE   → Descarta. Fin del flujo.
+      NO EXISTE → Mueve el archivo al repositorio con el nombre ya correcto.
+```
 
-**Función:** Ejecutar la migración y estandarización del sistema de archivos.
+---
 
-**Tareas:**
-- **Migración Inmutable:** lectura y copiado exclusivo desde el Repositorio Viejo (Legacy). El origen no se modifica.
-- **Estandarización:** renombrado automático a `CV — [Nombre] [Apellido]`. Inclusión de sufijos para Referidos.
-- **Estructuración:** creación de carpetas por **Posición** en el Repositorio Nuevo.
+### Responsabilidad 1 — Detección de nuevos CVs (Event-Driven)
 
-### Tareas Generales
+**Objetivo:** Que el sistema sepa cuándo llega algo nuevo sin intervención manual.
 
-- Detección de eventos (*Event-Driven*) en OneDrive y Email.
-- Validación de integridad mediante hashes SHA-256 para evitar duplicados.
+**Canales de entrada:**
+- **OneDrive** → alguien sube un CV a una carpeta específica dentro de la carpeta principal compartida.
+- **Email** → llega un CV adjunto a un correo.
+
+**Tecnología:** Microsoft Graph API para ambos canales (OneDrive y Outlook/Microsoft 365).
+
+**Modo de disparo:** Webhook o polling — el agente escucha de forma permanente o en intervalos cortos.
+
+**Lógica de validación:** Al detectar un archivo nuevo, el sistema determina si se trata de un CV antes de continuar el flujo.
+
+**Fin de esta responsabilidad:** Concluye cuando el archivo es descargado en la carpeta de entrada específica dentro de la carpeta principal compartida.
+
+---
+
+### Responsabilidad 2 — Orden y Normalización
+
+**Objetivo:** Estandarizar el nombre del archivo en la carpeta de entrada, antes de que ingrese al repositorio.
+
+**Convención de nombres:**
+- Formato estándar: `CV — Nombre Apellido`
+- Con sufijo para referidos: `CV — Juan Pérez — Referido`
+
+**Implementación:** Python + Regex. Sin LLM. El sistema lee el contenido del CV y aplica patrones de extracción para identificar el nombre del candidato.
+
+**Sin costo de tokens:** Al ser procesamiento local puro, esta responsabilidad no genera consumo de API.
+
+**Resultado:** El archivo queda renombrado en la carpeta de entrada con el nombre estandarizado, listo para ser validado en R3.
+
+---
+
+### Responsabilidad 3 — Integridad (Anti-duplicados)
+
+**Objetivo:** Garantizar que un CV no ingrese dos veces al repositorio.
+
+**Mecanismo:** Búsqueda del nombre estandarizado dentro del repositorio completo. Al llegar a esta instancia, el archivo ya tiene el formato `CV — Nombre Apellido`, lo que hace la comparación determinística y confiable.
+
+**Implementación:** Sin IA. Script Python puntual — sin costo de tokens.
+
+**Resultado:**
+- **Nombre encontrado** → el archivo se descarta. Fin del flujo.
+- **Nombre no encontrado** → el archivo se mueve al repositorio con el nombre ya correcto.
 
 ---
 
