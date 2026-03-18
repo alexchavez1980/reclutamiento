@@ -65,7 +65,7 @@ def get_access_token() -> str:
     # Primera vez o token expirado: Device Code Flow
     flow = app.initiate_device_flow(scopes=GRAPH_SCOPES)
     if "user_code" not in flow:
-        raise RuntimeError(f"Error iniciando Device Code Flow: {flow}")
+        raise RuntimeError(f"Error iniciando Device Code Flow:\n{json.dumps(flow, indent=2)}")
 
     print("\n" + "=" * 60)
     print("  🔐 AUTORIZACIÓN REQUERIDA")
